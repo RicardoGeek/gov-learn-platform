@@ -1,0 +1,30 @@
+service: gov-learn-serverless
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+
+functions:
+  register:
+    handler: register.register
+    events:
+      - http:
+          path: registrar
+          method: post
+          cors: true
+  confirm:
+    handler: confirm.confirm
+    events:
+      - http:
+          path: confirm
+          method: post
+          cors: true
+  login:
+    handler: login.login
+    events:
+      - http:
+          path: login
+          method: post
+          cors: true
