@@ -1,0 +1,360 @@
+{
+	"info": {
+		"_postman_id": "3bd3c296-308a-4504-9b9a-a988faec84a9",
+		"name": "gov-learn-backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Listado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/cursos",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cursos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get cursos del autor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/curso/ricardogeek",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"curso",
+						"ricardogeek"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Curso",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Seminario De Sistemas 1\",\n    \"descripcion\": \"Curso de seminario\",\n    \"owner\": \"ricardogeek\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/curso",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"curso"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Curso",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n            \"id\": 1,\n            \"nombre\": \"Seminario De Sistemas 1\",\n            \"descripcion\": \"Curso de seminario De Sistemas 1\"\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/curso",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"curso"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Curso",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/curso",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"curso"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Capitulo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Capitulo 2\",\n    \"descripcion\": \"Cosas que vamos a ver en el capitulo 2\",\n    \"id_curso\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/curso/capitulo",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"curso",
+						"capitulo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Capitulo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Capitulo 1\",\n    \"descripcion\": \"Cosas que vamos a ver en el capitulo 1 y mas\",\n    \"id\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/curso/capitulo",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"curso",
+						"capitulo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Capitulo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/curso/capitulo",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"curso",
+						"capitulo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Capitulos del curso",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/curso/capitulos/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"curso",
+						"capitulos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Contenido Del Capitulo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/curso/capitulo/3/contenido",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"curso",
+						"capitulo",
+						"3",
+						"contenido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Contenido del capitulo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"contenido\": \"blah blah blah\",\n    \"tipo\": \"texto\",\n    \"url\": \"N/A\",\n    \"id_capitulo\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/curso/capitulo/contenido",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"curso",
+						"capitulo",
+						"contenido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Contenido Capitulo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n            \"id\": 1,\n            \"contenido\": \"blah blah blah BÑAJ!\",\n            \"tipo\": \"texto\",\n            \"url\": \"http://google.com\"\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/curso/capitulo/contenido",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"curso",
+						"capitulo",
+						"contenido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Contenido Del Capitulo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/curso/capitulo/contenido",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"curso",
+						"capitulo",
+						"contenido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Contenido",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/curso/capitulo/contenido/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"curso",
+						"capitulo",
+						"contenido",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
