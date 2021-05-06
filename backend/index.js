@@ -20,6 +20,7 @@ app.get('/health', (req, res) => {
     })
 })
 
+
 /* RUTAS DE CURSOS */
 app.post('/curso', async (req, res) => {
     const { nombre, descripcion, owner } = req.body
@@ -40,6 +41,45 @@ app.post('/curso', async (req, res) => {
         curso: result
     })
 })
+
+app.post('/asignar', async (req,res) =>{
+    const username = req.body.username;
+    const idCurso = req.body.curso;
+
+    const result = await curso.asignar(username, idCurso)
+    .catch((error) => {
+        console.log(error)
+        return res.status(400).send({
+            status : 'error',
+            error : error
+        })
+    })
+
+    res.status(200).send({
+        status: 'ok',
+        curso: result
+    })
+})
+
+app.get('/cursos/asignados/:username', async (req, res) => {
+    const username = req.params.username
+
+    const result = await curso.getCursosAsignados(username)
+        .catch((error) => {
+            console.log(error)
+            return res.status(400).send({
+                status : 'error',
+                error : error
+            })
+        })
+
+    res.status(200).send({
+        status: 'ok',
+        cursos: result
+    })
+})
+
+
 
 app.put('/curso', async (req, res) => {
     console.log(req.body)

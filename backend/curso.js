@@ -1,5 +1,36 @@
 const mySqlConnection = require('./DBConnection.js')
 
+const asignar = async(username, idcurso) => {
+    const connection = await mySqlConnection.getConnection()
+        .catch((error) => {
+            console.log(error)
+            throw new Error(error)
+        })
+
+    const queryCommand = 'INSERT INTO asignacion(username, id_curso) VALUES(?, ?)'
+    const result = await connection.awaitQuery(queryCommand, [username, idcurso]);
+    
+    return result
+}
+
+const getCursosAsignados = async (username) => {
+    const connection = await mySqlConnection.getConnection()
+        .catch((error) => {
+            console.log(error)
+            throw new Error(error)
+        })
+    
+    const queryCommand = 'SELECT * FROM curso INNER JOIN asignacion ON asignacion.id_curso = curso.id WHERE asignacion.username = ?'
+    const cursos = await connection.awaitQuery(queryCommand, [username])
+        .catch((error) => {
+            console.log(error)
+            throw new Error(error)
+        })
+    
+    return cursos
+}
+
+
 const createCurso = async (curso) => {
     const connection = await mySqlConnection.getConnection()
         .catch((error) => {
@@ -111,5 +142,7 @@ module.exports = {
     deleteCurso,
     getCursos,
     getListado,
-    getCapitulos
+    getCapitulos,
+    asignar,
+    getCursosAsignados
 }
