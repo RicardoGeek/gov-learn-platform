@@ -1,0 +1,51 @@
+
+<i class="pi pi-angle-left" style="font-size: 2rem" routerLink="../login"></i>
+<div class="p-mb-3 p-text-center p-text-bold">Confirmar Usuario <img style="max-width: 80px;" src='../../assets/logo1.png'>
+</div>
+
+<div class="container" >
+  <div class="p-grid p-ai-center vertical-container">
+
+    <div class="p-col">
+      <div class="box">
+        <div class="p-grid p-ai-center vertical-container">
+          <div class="p-col-6 p-offset-3">
+            <div class="box" style="border-style: ridge;">
+              <div class="p-fluid" style="padding: 3%;">
+                <div class="p-field p-grid">
+                  <label for="username" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Usuario</label>
+                  <div class="p-col-12 p-md-10">
+                    <input id="username" type="text" pInputText [(ngModel)]="username">
+                  </div>
+                </div>
+                <div class="p-field p-grid">
+                  <label for="name" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Codigo</label>
+                  <div class="p-col-12 p-md-10">
+                    <input id="name" type="text" pInputText [(ngModel)]="code">
+                  </div>
+                </div>
+                <div class="p-field p-grid">
+
+                  <div class="p-col-12 p-md-10">
+                    <button pButton pRipple type="button" label="Confirmar" class="p-button-rounded" (click)="confirm()"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<p-dialog header="Confirmacion de Cuenta" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="false">
+    <p class="p-m-0">Debe confirmar su cuenta para poder acceder a la aplicacion. Se ha enviado un codigo de confirmacion a su correo electronico.</p>
+        <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
+        </ng-template>
+</p-dialog>

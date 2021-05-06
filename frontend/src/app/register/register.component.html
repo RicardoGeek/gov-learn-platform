@@ -1,0 +1,56 @@
+
+<i class="pi pi-angle-left" style="font-size: 2rem" routerLink="../login"></i>
+<div class="p-mb-3 p-text-center p-text-bold">Registrarse <img style="max-width: 80px;" src='../../assets/logo1.png'>
+</div>
+
+<div class="container" >
+  <div class="p-grid p-ai-center vertical-container">
+
+    <div class="p-col">
+      <div class="box">
+        <div class="p-grid p-ai-center vertical-container">
+          <div class="p-col-6 p-offset-3">
+            <div class="box" style="border-style: ridge;">
+              <div class="p-fluid" style="padding: 3%;">
+                <div class="p-field p-grid">
+                  <label for="username" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Usuario</label>
+                  <div class="p-col-12 p-md-10">
+                    <input id="username" type="text" pInputText [(ngModel)]="user.username">
+                  </div>
+                </div>
+                <div class="p-field p-grid">
+                  <label for="name" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Nombre</label>
+                  <div class="p-col-12 p-md-10">
+                    <input id="name" type="text" pInputText [(ngModel)]="user.name">
+                  </div>
+                </div>
+                <div class="p-field p-grid">
+                  <label for="email" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Email</label>
+                  <div class="p-col-12 p-md-10">
+                    <input id="email" type="text" pInputText [(ngModel)]="user.email">
+                  </div>
+                </div>
+                <div class="p-field p-grid">
+                  <label for="lastname" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Contraseña</label>
+                  <div class="p-col-12 p-md-10">
+                    <input id="lastname" type="password" pInputText [(ngModel)]="user.password">
+                  </div>
+                </div>
+                <div class="p-field p-grid">
+
+                  <div class="p-col-12 p-md-10">
+                    <button pButton pRipple type="button" label="Registrar" class="p-button-rounded" (click)="register()"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+

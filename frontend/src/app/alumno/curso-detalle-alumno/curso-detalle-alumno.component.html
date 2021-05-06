@@ -1,0 +1,17 @@
+<div class="p-text-bold p-text-center" style="font-size:30px;">BIENVENIDO A TU CURSO</div>
+
+<p-card header={{item.nombre}} [style]="{'width': '25rem', 'margin-bottom': '2em'}" *ngFor="let item of capitulos">
+  <p>{{item.descripcion}}</p>
+  <ng-template pTemplate="footer">
+    <button pButton pRipple type="button" label="Contenido" class="p-button-rounded" (click)="contenido(item.id)"></button>
+</ng-template>
+</p-card>
+
+
+<p-dialog header="Contenido" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="false">
+    <p-listbox [options]="contenidos"  optionLabel="contenido" [style]="{'width':'15rem'}"></p-listbox>
+        <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
+        </ng-template>
+</p-dialog>

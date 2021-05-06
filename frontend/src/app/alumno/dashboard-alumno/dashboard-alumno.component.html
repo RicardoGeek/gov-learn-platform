@@ -1,0 +1,6 @@
+<p-sidebar [(visible)]="visibleSidebar1" styleClass="p-sidebar-sm">
+  <h1 style="font-weight:normal">MENU</h1>
+  <p-listbox [options]="menu" [(ngModel)]="selectedMenu" optionLabel="name" [style]="{'width':'15rem'}" (click)="goTo()"></p-listbox>
+</p-sidebar>
+<p-button type="button" (click)="visibleSidebar1 = true" icon="pi pi-align-justify"></p-button>
+<router-outlet></router-outlet>

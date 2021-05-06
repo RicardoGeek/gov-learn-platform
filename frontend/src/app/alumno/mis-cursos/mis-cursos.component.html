@@ -1,0 +1,12 @@
+<div class="p-text-bold p-text-center" style="font-size:30px;">Cursos Asignados</div>
+
+<p-card header={{item.nombre}} [style]="{'width': '25rem', 'margin-bottom': '2em'}" *ngFor="let item of cursos">
+  <p>{{item.descripcion}}</p>
+  <ng-template pTemplate="footer">
+    {{item.owner}}
+    <br>
+    <br>
+    <br>
+    <button pButton pRipple type="button" label="Ver" class="p-button-rounded" (click)="ver(item.id)"></button>
+</ng-template>
+</p-card>

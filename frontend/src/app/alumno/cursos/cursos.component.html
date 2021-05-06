@@ -1,0 +1,29 @@
+<div class="p-text-bold p-text-center" style="font-size:30px;">Cursos Disponibles</div>
+
+<p-card header={{item.nombre}} [style]="{'width': '25rem', 'margin-bottom': '2em'}" *ngFor="let item of cursos">
+  <p>{{item.descripcion}}</p>
+  <ng-template pTemplate="footer">
+    {{item.owner}}
+    <br>
+    <br>
+    <br>
+    <button pButton pRipple type="button" label="Asignarse" class="p-button-rounded" (click)="asignar(item.id)"></button>
+</ng-template>
+</p-card>
+
+<p-dialog header="Curso Asignado Correctamente" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="false">
+    <p class="p-m-0">Se asigno el curso con exito</p>
+        <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
+        </ng-template>
+</p-dialog>
+
+<p-dialog header="Cursos" [(visible)]="displayModalError" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="false">
+    <p class="p-m-0">Ya se encuentra asignado a este curso</p>
+        <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="displayModalError=false" label="Ok" styleClass="p-button-text"></p-button>
+        </ng-template>
+</p-dialog>
+
