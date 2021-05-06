@@ -3,5 +3,5 @@ export class Contenido {
   contenido: String;
   tipo: String;
   url: String;
-  id_Capitulo: number;
+  id_capitulo: number;
 }

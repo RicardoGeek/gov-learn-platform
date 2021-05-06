@@ -14,6 +14,11 @@ const routes: Routes = [
   path: 'pages',
   loadChildren: () => import('./alumno/dashboard-alumno/dashboard-alumno.module')
     .then(m => m.DashboardModule),
+},
+{
+  path: 'admin',
+  loadChildren: () => import('./maestro/dashboard-maestro/dashboard-maestro.module')
+    .then(m => m.DashboardMaestroModule),
 },];
 
 @NgModule({

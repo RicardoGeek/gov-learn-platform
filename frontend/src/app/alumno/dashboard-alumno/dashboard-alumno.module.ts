@@ -1,6 +1,5 @@
 import { CursoDetalleAlumnoComponent } from './../curso-detalle-alumno/curso-detalle-alumno.component';
 import { MisCursosComponent } from './../mis-cursos/mis-cursos.component';
-import { CursosMasterComponent } from './../../maestro/cursos-master/cursos-master.component';
 import { CursosComponent } from './../cursos/cursos.component';
 import { AsignacionComponent } from './../asignacion/asignacion.component';
 import { DashboardAlumnoComponent } from './dashboard-alumno.component';
@@ -15,6 +14,7 @@ import {SidebarModule} from 'primeng/sidebar';
 import {ListboxModule} from 'primeng/listbox';
 import {CardModule} from 'primeng/card';
 import { CommonModule } from '@angular/common';
+import {FieldsetModule} from 'primeng/fieldset';
 
 @NgModule({
   imports: [
@@ -25,13 +25,13 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     CardModule,
     CommonModule,
-    DialogModule
+    DialogModule,
+    FieldsetModule
   ],
   declarations: [
     DashboardAlumnoComponent,
     AsignacionComponent,
     CursosComponent,
-    CursosMasterComponent,
     MisCursosComponent,
     CursoDetalleAlumnoComponent
 

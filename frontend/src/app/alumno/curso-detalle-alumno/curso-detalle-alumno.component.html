@@ -10,7 +10,15 @@
 
 <p-dialog header="Contenido" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
     [draggable]="false" [resizable]="false">
-    <p-listbox [options]="contenidos"  optionLabel="contenido" [style]="{'width':'15rem'}"></p-listbox>
+
+    <p-fieldset legend={{item.id}} *ngFor="let item of contenidos">
+      <p>{{item.contenido}}</p>
+      <br>
+      <span style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">{{item.tipo}}</span>
+      <br>
+      <br>
+      <a href={{item.url}} target="_blank">Archivos De Apoyo</a>
+  </p-fieldset>
         <ng-template pTemplate="footer">
         <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
         </ng-template>

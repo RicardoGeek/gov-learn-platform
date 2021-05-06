@@ -15,7 +15,7 @@ const routes: Routes = [{
     },
     {
       path: '',
-      redirectTo: 'dashboard',
+      redirectTo: 'cursos',
       pathMatch: 'full',
     },
     { path: 'cursos', component: CursosComponent },

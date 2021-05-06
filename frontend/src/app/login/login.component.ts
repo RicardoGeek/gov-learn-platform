@@ -24,7 +24,13 @@ export class LoginComponent implements OnInit {
             rol: data.result.idToken.payload['custom:rol'],
           };
           localStorage.setItem('user', JSON.stringify(user));
-          this.router.navigate(['/pages']);
+
+          if (user.rol === "ESTUDIANDTE") {
+            this.router.navigate(['/pages']);
+          } else {
+            this.router.navigate(['/admin']);
+          }
+
         } else if (data.errorMessage == 'User is not confirmed.') {
           this.router.navigate(['/confirm']);
         } else if (data.errorMessage == 'Incorrect username or password.') {

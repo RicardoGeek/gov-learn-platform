@@ -1,1 +1,41 @@
-<p>cursos-master works!</p>
+<div class="p-text-bold p-text-center" style="font-size:30px;">Cursos Disponibles</div>
+<button pButton pRipple type="button" label="Crear Curso" class="p-button-rounded" (click)="openCreateModal()"
+  style="float: right;"></button>
+<div style="display: flex; margin-top: 4%;">
+  <p-card header={{item.nombre}} [style]="{'width': '25rem', 'margin-bottom': '2em',  'margin-left': '2em'}" *ngFor="let item of cursos">
+    <p>{{item.descripcion}}</p>
+    <ng-template pTemplate="footer">
+      {{item.owner}}
+      <br>
+      <br>
+      <br>
+      <button pButton pRipple type="button" label="Ver" class="p-button-rounded" (click)="ver(item.id)"></button>
+      <button pButton pRipple type="button" label="Eliminar" class="p-button-danger p-button-rounded"
+        (click)="delete(item)"></button>
+    </ng-template>
+  </p-card>
+</div>
+
+
+<p-dialog header="Cursos" [(visible)]="createModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+  [draggable]="false" [resizable]="false">
+  <label for="name" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Nombre</label>
+  <div class="p-col-12 p-md-10">
+    <input id="name" type="text" pInputText [(ngModel)]="newCurso.nombre">
+  </div>
+  <br>
+  <br>
+  <label for="descripcion" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Descripcion</label>
+  <div class="p-col-12 p-md-10">
+    <input id="descripcion" type="text" pInputText [(ngModel)]="newCurso.descripcion">
+  </div>
+  <br>
+  <br>
+  <label for="owner" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Maestro</label>
+  <div class="p-col-12 p-md-10">
+    <input id="owner" type="text" pInputText [(ngModel)]="newCurso.owner">
+  </div>
+  <ng-template pTemplate="footer">
+    <button pButton pRipple type="button" label="Crear" class="p-button-rounded" (click)="create()"></button>
+  </ng-template>
+</p-dialog>

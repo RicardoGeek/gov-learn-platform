@@ -1,0 +1,79 @@
+<div class="p-text-bold p-text-center" style="font-size:30px;">BIENVENIDO</div>
+<button pButton pRipple type="button" label="Crear Capitulo" class="p-button-rounded" (click)="openCreateModal()"
+  style="float: right;"></button>
+
+<div style="display: flex; margin-top: 4%;">
+  <p-card header={{item.nombre}} [style]="{'width': '25rem', 'margin-bottom': '2em', 'margin-left': '2em'}" *ngFor="let item of capitulos">
+    <p>{{item.descripcion}}</p>
+    <ng-template pTemplate="footer">
+      <button pButton pRipple type="button" label="Contenido" class="p-button-rounded"
+        (click)="contenido(item.id)"></button>
+        <button pButton pRipple type="button" label="Eliminar" class="p-button-danger p-button-rounded"
+        (click)="delete(item)"></button>
+        <button pButton pRipple type="button" label="Crear Contenido" class="p-button-success p-button-rounded"
+        (click)="openCreateContenido(item.id)"></button>
+    </ng-template>
+  </p-card>
+</div>
+
+<p-dialog header="Contenido" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+  [draggable]="false" [resizable]="false">
+
+  <p-fieldset legend={{item.id}} *ngFor="let item of contenidos">
+    <p>{{item.contenido}}</p>
+    <br>
+    <span style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">{{item.tipo}}</span>
+    <br>
+    <br>
+    <a href={{item.url}} target="_blank">Archivos De Apoyo</a>
+    <br>
+    <br>
+    <button pButton pRipple type="button" label="Eliminar" class="p-button-danger p-button-rounded"
+    (click)="deleteContenido(item)"></button>
+  </p-fieldset>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>
+
+<p-dialog header="Capitulo" [(visible)]="createModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+  [draggable]="false" [resizable]="false">
+  <label for="name" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Nombre</label>
+  <div class="p-col-12 p-md-10">
+    <input id="name" type="text" pInputText [(ngModel)]="newCapitulo.nombre">
+  </div>
+  <br>
+  <br>
+  <label for="descripcion" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Descripcion</label>
+  <div class="p-col-12 p-md-10">
+    <input id="descripcion" type="text" pInputText [(ngModel)]="newCapitulo.descripcion">
+  </div>
+
+  <ng-template pTemplate="footer">
+    <button pButton pRipple type="button" label="Crear" class="p-button-rounded" (click)="create()"></button>
+  </ng-template>
+</p-dialog>
+
+<p-dialog header="Contenido" [(visible)]="createModalContenido" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+  [draggable]="false" [resizable]="false">
+  <label for="name" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Contenido</label>
+  <div class="p-col-12 p-md-10">
+    <input id="name" type="text" pInputText [(ngModel)]="newContenido.contenido">
+  </div>
+  <br>
+  <br>
+  <label for="descripcion" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Tipo</label>
+  <div class="p-col-12 p-md-10">
+    <input id="descripcion" type="text" pInputText [(ngModel)]="newContenido.tipo">
+  </div>
+  <br>
+  <br>
+  <label for="url" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">url</label>
+  <div class="p-col-12 p-md-10">
+    <input id="url" type="text" pInputText [(ngModel)]="newContenido.url">
+  </div>
+
+  <ng-template pTemplate="footer">
+    <button pButton pRipple type="button" label="Crear" class="p-button-rounded" (click)="createContenido()"></button>
+  </ng-template>
+</p-dialog>
