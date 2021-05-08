@@ -9,17 +9,16 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 
-
 const curso = require('./curso')
 const capitulo = require('./capitulo')
 const _contenido = require('./contenido')
+const ai = require('./ai')
 
 app.get('/health', (req, res) => {
-    req.send({
+    res.send({
         status: 'UP'
     })
 })
-
 
 /* RUTAS DE CURSOS */
 app.post('/curso', async (req, res) => {
@@ -78,8 +77,6 @@ app.get('/cursos/asignados/:username', async (req, res) => {
         cursos: result
     })
 })
-
-
 
 app.put('/curso', async (req, res) => {
     console.log(req.body)
@@ -329,6 +326,45 @@ app.get('/curso/capitulo/contenido/:id_contenido', async (req, res) => {
     res.status(200).send({
         status: 'ok',
         contenido: result
+    })
+})
+
+/* RUTAS DE IA */
+app.post('/ia/text2speech', async (req, res) => {
+    const texto = req.body.texto
+
+    const file = await ai.text2speech({
+        text: texto
+    }).catch((error) => {
+        res.status(400).send({
+            status: 'error',
+            error
+        })
+    })
+
+    res.status(200).send({
+        status: 'ok',
+        file
+    })
+})
+
+app.post('/ia/translate', async(req, res) => {
+    const { language, target, text} = req.body
+
+    const traduccion = await ai.doTranslation({
+        language,
+        target,
+        text
+    }).catch((error) => {
+        res.status(400).send({
+            status: 'error',
+            error
+        })
+    })
+
+    res.status(200).send({
+        status: 'ok',
+        traduccion
     })
 })
 
