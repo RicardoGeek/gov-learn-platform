@@ -8,7 +8,7 @@ const polly = new AWS.Polly({
 })
 
 
-const doTranslation = (message) => {
+const doTranslation = async (message) => {
     const { language, target, text} = message
 
     const params = {
