@@ -41,7 +41,7 @@ const text2speech = async (payload) => {
     fs.writeFileSync('/var/www/html/uploads/'+fileName, speech.AudioStream)
     
     return {
-        output: 'http://ec2-34-227-57-244.compute-1.amazonaws.com/uploads/uploads/' + fileName
+        output: 'http://ec2-34-227-57-244.compute-1.amazonaws.com/uploads/' + fileName
     }
 }
 
