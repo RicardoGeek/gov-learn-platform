@@ -341,7 +341,7 @@ app.post('/ia/text2speech', async (req, res) => {
             error
         })
     })
-
+    console.log(file)
     res.status(200).send({
         status: 'ok',
         file

@@ -38,7 +38,7 @@ const text2speech = async (payload) => {
     
     const fileName = getRandomString() + '.mp3'
 
-    fs.write('/var/www/html/uploads/'+fileName, speech, (error) => {
+    fs.writeSync('/var/www/html/uploads/'+fileName, speech.AudioStream, (error) => {
         if(error) {
             console.log(error)
             return error
