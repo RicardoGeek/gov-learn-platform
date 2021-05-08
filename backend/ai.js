@@ -38,16 +38,11 @@ const text2speech = async (payload) => {
     
     const fileName = getRandomString() + '.mp3'
 
-    fs.writeSync('/var/www/html/uploads/'+fileName, speech.AudioStream, (error) => {
-        if(error) {
-            console.log(error)
-            return error
-        }
-
-        return {
-            output: '/var/www/html/uploads/' + fileName
-        }
-    })
+    fs.writeFileSync('/var/www/html/uploads/'+fileName, speech.AudioStream)
+    
+    return {
+        output: '/var/www/html/uploads/' + fileName
+    }
 }
 
 const getRandomString = () => Math.random().toString(36).substring(7).toUpperCase()
