@@ -26,6 +26,7 @@ const doTranslation = async (message) => {
 const text2speech = async (payload) => {
     let params = {
         'Text': payload.text,
+        'LanguageCode': 'es-MX',
         'OutputFormat': 'mp3',
         'VoiceId': 'Kimberly'
     }
