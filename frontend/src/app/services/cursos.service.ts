@@ -94,4 +94,18 @@ export class CursosService {
       body: contenido,
     });
   }
+
+  translate(text: string): Observable<any> {
+    let data = {
+      language: 'es',
+      target : 'en',
+      text: text
+    }
+
+    return this.http.post(this.urlBase + 'ia/translate', data, this.httpOptions());
+  }
+
+  listen(text: string): Observable<any>{
+    return this.http.post(this.urlBase + 'ia/text2speech', {texto: text}, this.httpOptions());
+  }
 }

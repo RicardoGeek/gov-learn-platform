@@ -4,6 +4,7 @@ import { CursosComponent } from './../cursos/cursos.component';
 import { DashboardAlumnoComponent } from './dashboard-alumno.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { WorkspaceComponent } from '../workspace/workspace.component';
 
 const routes: Routes = [{
   path: '',
@@ -15,10 +16,11 @@ const routes: Routes = [{
     },
     {
       path: '',
-      redirectTo: 'cursos',
+      redirectTo: 'workSpace',
       pathMatch: 'full',
     },
     { path: 'cursos', component: CursosComponent },
+    { path: 'workSpace', component: WorkspaceComponent },
     { path: 'miscursos', component: MisCursosComponent },
     { path: 'cursoDetalle/:id', component: CursoDetalleAlumnoComponent },
   ],

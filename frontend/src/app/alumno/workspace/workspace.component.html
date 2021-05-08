@@ -1,0 +1,27 @@
+<div class="p-text-bold p-text-center" style="font-size:30px;">Area de Trabajo</div>
+
+<div style="display: flex; margin-top: 4%;">
+  <div class="container" style="margin-bottom: 2em; margin-left: 2em;">
+    <h5>Inline</h5>
+    <p-calendar [inline]="true" [showWeek]="true"></p-calendar>
+  </div>
+  <div class="container" style="margin-bottom: 2em; margin-left: 2em;">
+    <h5>Traductor</h5>
+    <div class="row">
+      <div class="col-5">
+        <textarea rows="5" cols="30" pInputTextarea placeholder="Español" [(ngModel)]="spanish"></textarea>
+      </div>
+      <div class="col-2">
+        <button pButton pRipple type="button" icon="pi pi-arrow-circle-right"
+          class="p-button-rounded p-button-outlined" (click)="translate()"></button>
+      </div>
+      <div class="col-5">
+        <textarea rows="5" cols="30" pInputTextarea placeholder="Ingles" [(ngModel)]="english"></textarea>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>

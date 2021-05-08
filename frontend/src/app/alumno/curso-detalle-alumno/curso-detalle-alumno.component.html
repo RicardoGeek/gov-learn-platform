@@ -1,20 +1,40 @@
 <div class="p-text-bold p-text-center" style="font-size:30px;">BIENVENIDO A TU CURSO</div>
 
-<p-card header={{item.nombre}} [style]="{'width': '25rem', 'margin-bottom': '2em'}" *ngFor="let item of capitulos">
+
+<div style="display: flex; margin-top: 4%; -webkit-flex-wrap: wrap;">
+<p-card header={{item.nombre}} [style]="{'width': '25rem', 'margin-bottom': '2em', 'margin-left': '2em'}" *ngFor="let item of capitulos">
   <p>{{item.descripcion}}</p>
   <ng-template pTemplate="footer">
     <button pButton pRipple type="button" label="Contenido" class="p-button-rounded" (click)="contenido(item.id)"></button>
 </ng-template>
 </p-card>
+</div>
 
 
 <p-dialog header="Contenido" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
     [draggable]="false" [resizable]="false">
 
     <p-fieldset legend={{item.id}} *ngFor="let item of contenidos">
-      <p>{{item.contenido}}</p>
+      <textarea rows="5" cols="30" pInputTextarea>{{item.contenido}}</textarea>
       <br>
       <span style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">{{item.tipo}}</span>
+      <div class="row" style="margin-left: 2em; display: flex;">
+        <div class="col-2">
+          <button pButton pRipple type="button" icon="pi pi-volume-down"
+          class="p-button-rounded p-button-outlined" (click)="listen(item.contenido)"></button>
+        </div>
+        <div class="col-2">
+          <button pButton pRipple type="button" icon="pi pi-play"
+          class="p-button-rounded p-button-outlined" (click)="play()" *ngIf="isPaused"></button>
+          <button pButton pRipple type="button" icon="pi pi-pause"
+          class="p-button-rounded p-button-outlined" (click)="pause()" *ngIf="!isPaused"></button>
+        </div>
+        <div class="col-2">
+          <button pButton pRipple type="button" icon="pi pi-undo"
+          class="p-button-rounded p-button-outlined" (click)="stop()"></button>
+        </div>
+      </div>
+
       <br>
       <br>
       <a href={{item.url}} target="_blank">Archivos De Apoyo</a>

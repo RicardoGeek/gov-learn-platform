@@ -14,6 +14,7 @@ export class DashboardAlumnoComponent implements OnInit {
 
   ngOnInit(): void {
     this.menu = [
+      { name: 'Espacio de Trabajo', code: '/pages/workSpace' },
       { name: 'Cursos', code: '/pages/cursos' },
       { name: 'Mis Cursos', code: '/pages/miscursos' },
       { name: 'Cerrar Sesion', code: '1' },
