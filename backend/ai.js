@@ -28,7 +28,7 @@ const text2speech = async (payload) => {
         'Text': payload.text,
         'LanguageCode': 'es-MX',
         'OutputFormat': 'mp3',
-        'VoiceId': 'Kimberly'
+        'VoiceId': 'Mia'
     }
 
     const speech = await polly.synthesizeSpeech(params).promise()
