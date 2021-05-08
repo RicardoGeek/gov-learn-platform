@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk')
 const fs = require('fs')
 
-const translate = new AWS.Translate(aws_keys.translation)
+const translate = new AWS.Translate()
 const polly = new AWS.Polly({
     signatureVersion: 'v4',
     region: 'us-east-1'
