@@ -19,7 +19,7 @@ export class ConfirmUserComponent implements OnInit {
     if (this.username && this.code) {
       this.authService.confirm(this.username, this.code).subscribe((data) => {
         if (data.statusCode == 200) {
-          let user = { username: this.username, rol: 'ESTUDIANTE' };
+          let user = { username: this.username, rol: 'ESTUDIANDTE' };
           localStorage.setItem('user', JSON.stringify(user));
           if (user.rol === 'ESTUDIANDTE') {
             this.router.navigate(['/pages']);
