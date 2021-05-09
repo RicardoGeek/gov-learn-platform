@@ -1,3 +1,4 @@
+import { WorkspaceComponent } from './../workspace/workspace.component';
 import { CursoDetalleAlumnoComponent } from './../curso-detalle-alumno/curso-detalle-alumno.component';
 import { MisCursosComponent } from './../mis-cursos/mis-cursos.component';
 import { CursosComponent } from './../cursos/cursos.component';
@@ -15,6 +16,8 @@ import {ListboxModule} from 'primeng/listbox';
 import {CardModule} from 'primeng/card';
 import { CommonModule } from '@angular/common';
 import {FieldsetModule} from 'primeng/fieldset';
+import {CalendarModule} from 'primeng/calendar';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 
 @NgModule({
   imports: [
@@ -26,14 +29,18 @@ import {FieldsetModule} from 'primeng/fieldset';
     CardModule,
     CommonModule,
     DialogModule,
-    FieldsetModule
+    FieldsetModule,
+    CalendarModule,
+    InputTextareaModule
+
   ],
   declarations: [
     DashboardAlumnoComponent,
     AsignacionComponent,
     CursosComponent,
     MisCursosComponent,
-    CursoDetalleAlumnoComponent
+    CursoDetalleAlumnoComponent,
+    WorkspaceComponent
 
   ],
 })

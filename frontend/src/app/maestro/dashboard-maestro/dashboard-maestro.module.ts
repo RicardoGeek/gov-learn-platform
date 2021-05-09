@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import {FieldsetModule} from 'primeng/fieldset';
 import { DashboardMaestroRoutingModule } from './dashboard-maestro-routing.module';
 import { DashboardMaestroComponent } from './dashboard-maestro.component';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { DashboardMaestroComponent } from './dashboard-maestro.component';
     CommonModule,
     DialogModule,
     FieldsetModule,
-    InputTextModule
+    InputTextModule,
+    InputTextareaModule
   ],
   declarations: [
     CursosMasterComponent,
